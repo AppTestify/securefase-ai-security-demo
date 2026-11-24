@@ -17,10 +17,13 @@ Do not deploy this. It is meant to be scanned so the AI Security overview, inven
 | Unsafe model load | `src/ml/load.py` |
 | Vector store / shadow keys | `requirements.txt`, `.env.example` |
 | Unpinned MCP servers | `.cursor/mcp.json` |
+| IaC cloud misconfigs | `infra/terraform/aws/main.tf`, `infra/k8s/` |
 
 ## Demo account
 
-Connect this repository to the SecureFase **demo** workspace (`demo` / `demo@securefase.com`), then run an **AI** scan.
+Connected to the SecureFase **demo** workspace (`demo` / `demo@securefase.com`).
+
+Run **AI** and **IAC** scans against this repo. Live cloud posture in the demo workspace uses stub AWS/Azure accounts (not this git tree).
 
 ## Safe to share
 

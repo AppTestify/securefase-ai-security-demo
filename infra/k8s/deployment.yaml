@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-demo-api
+  namespace: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-demo-api
+  template:
+    metadata:
+      labels:
+        app: ai-demo-api
+    spec:
+      hostNetwork: true
+      containers:
+        - name: api
+          image: registry.example.com/ai-demo-api:latest
+          securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+            runAsUser: 0
+          volumeMounts:
+            - name: host
+              mountPath: /host
+      volumes:
+        - name: host
+          hostPath:
+            path: /
